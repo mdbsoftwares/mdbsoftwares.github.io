@@ -1,0 +1,23 @@
+<div class='md-padding' layout="row" layout-wrap>
+
+    <md-card md-ink-ripple style="position:relative;width:200px;padding:10px;"
+             ng-repeat="app in apps | filter:search | filter:filterPopular | orderBy:'-downloads'">
+        <a href="#/details/{{app.id}}">
+            <center>
+                <div id="conteneur" style="position:relative;width:72px;" height="72px"
+                     width="72px">
+                    <img ng-src="{{app.icon}}" class="md-card-image" style="width:72px"
+                         height="72px" width="72px"/>
+
+                    <ng-md-icon icon="block" ng-show="{{app.unpublished}}" size="72"
+                                style="fill:red;position:absolute;top:0px;left:0px;opacity:0.4;"></ng-md-icon>
+                </div>
+                <h3 class="md-title">{{app.title}}</h3>
+            </center>
+                                    <span style="text-align: left;font-size: 14px; line-height: 20px;">
+                                        <b>Downloads :</b> {{formatDownloads(app.downloads)}}<br/>
+                                        <b>Publication :</b> {{app.publication_date}}
+                                    </span>
+        </a>
+    </md-card>
+</div>
